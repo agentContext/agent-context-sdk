@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.guide import Guide
+from agent-context-sdk.models.guide import Guide
 
 # TODO update the JSON string below
 json = "{}"

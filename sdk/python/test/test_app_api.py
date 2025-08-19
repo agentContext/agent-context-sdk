@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.app_api import AppApi
+from agent-context-sdk.api.app_api import AppApi
 
 
 class TestAppApi(unittest.TestCase):

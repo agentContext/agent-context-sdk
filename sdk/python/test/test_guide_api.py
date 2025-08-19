@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.api.guide_api import GuideApi
+from agent-context-sdk.api.guide_api import GuideApi
 
 
 class TestGuideApi(unittest.TestCase):

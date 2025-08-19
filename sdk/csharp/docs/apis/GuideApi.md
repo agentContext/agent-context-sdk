@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Api.GuideApi
+# agent-context-sdk.Api.GuideApi
 
 All URIs are relative to *https://api/v1*
 

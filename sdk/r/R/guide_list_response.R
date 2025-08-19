@@ -86,7 +86,7 @@ GuideListResponse <- R6::R6Class(
     fromJSON = function(input_json) {
       this_object <- jsonlite::fromJSON(input_json)
       if (!is.null(this_object$`data`)) {
-        self$`data` <- ApiClient$new()$deserializeObj(this_object$`data`, "array[Guide]", loadNamespace("openapi"))
+        self$`data` <- ApiClient$new()$deserializeObj(this_object$`data`, "array[Guide]", loadNamespace("agent-context-sdk"))
       }
       if (!is.null(this_object$`paging`)) {
         `paging_object` <- Paging$new()
@@ -114,7 +114,7 @@ GuideListResponse <- R6::R6Class(
     #' @return the instance of GuideListResponse
     fromJSONString = function(input_json) {
       this_object <- jsonlite::fromJSON(input_json)
-      self$`data` <- ApiClient$new()$deserializeObj(this_object$`data`, "array[Guide]", loadNamespace("openapi"))
+      self$`data` <- ApiClient$new()$deserializeObj(this_object$`data`, "array[Guide]", loadNamespace("agent-context-sdk"))
       self$`paging` <- Paging$new()$fromJSON(jsonlite::toJSON(this_object$`paging`, auto_unbox = TRUE, digits = NA))
       self
     },

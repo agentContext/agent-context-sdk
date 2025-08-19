@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.ErrorResponse
+# agent-context-sdk.Model.ErrorResponse
 
 ## Properties
 

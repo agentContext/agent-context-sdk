@@ -19,8 +19,8 @@ All URIs are relative to *https://api/v1*
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import agent-context-sdk.infrastructure.*
+//import agent-context-sdk.models.*
 
 val apiInstance = AppApi()
 val page : kotlin.Int = 56 // kotlin.Int | 页码（默认 1）
@@ -65,8 +65,8 @@ No authorization required
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import agent-context-sdk.infrastructure.*
+//import agent-context-sdk.models.*
 
 val apiInstance = AppApi()
 val id : kotlin.Int = 56 // kotlin.Int | 
@@ -109,8 +109,8 @@ No authorization required
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import agent-context-sdk.infrastructure.*
+//import agent-context-sdk.models.*
 
 val apiInstance = AppApi()
 val pkgname : kotlin.String = pkgname_example // kotlin.String | 
@@ -153,8 +153,8 @@ No authorization required
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import agent-context-sdk.infrastructure.*
+//import agent-context-sdk.models.*
 
 val apiInstance = AppApi()
 val q : kotlin.String = q_example // kotlin.String | 搜索关键词

@@ -1,4 +1,4 @@
-# openapi-client
+# agent-context-sdk
 基本地址：`/v1/`（已在 servers 配置）
 - 普通接口 **无鉴权**
 - 统一错误：`{\"error\":\"reason\"}`
@@ -29,7 +29,7 @@ pip install git+https://github.com/GIT_USER_ID/GIT_REPO_ID.git
 
 Then import the package:
 ```python
-import openapi_client
+import agent-context-sdk
 ```
 
 ### Setuptools
@@ -43,7 +43,7 @@ python setup.py install --user
 
 Then import the package:
 ```python
-import openapi_client
+import agent-context-sdk
 ```
 
 ### Tests
@@ -56,22 +56,22 @@ Please follow the [installation procedure](#installation--usage) and then run th
 
 ```python
 
-import openapi_client
-from openapi_client.rest import ApiException
+import agent-context-sdk
+from agent-context-sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = agent-context-sdk.Configuration(
     host = "https://api/v1"
 )
 
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with agent-context-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.AppApi(api_client)
+    api_instance = agent-context-sdk.AppApi(api_client)
     page = 1 # int | 页码（默认 1） (optional) (default to 1)
     limit = 20 # int | 每页数量（默认 20） (optional) (default to 20)
 

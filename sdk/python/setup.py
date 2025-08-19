@@ -20,7 +20,7 @@ from setuptools import setup, find_packages  # noqa: H301
 #
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
-NAME = "openapi-client"
+NAME = "agent-context-sdk"
 VERSION = "1.0.0"
 PYTHON_REQUIRES = ">= 3.9"
 REQUIRES = [
@@ -45,5 +45,5 @@ setup(
     long_description="""\
     基本地址：&#x60;/v1/&#x60;（已在 servers 配置） - 普通接口 **无鉴权** - 统一错误：&#x60;{\&quot;error\&quot;:\&quot;reason\&quot;}&#x60; - 分页：&#x60;page&#x60; 默认 1，&#x60;limit&#x60; 默认 20 - &#x60;score&#x60; 为相似度（仅 /guide/search/{pkgname} 返回） 
     """,  # noqa: E501
-    package_data={"openapi_client": ["py.typed"]},
+    package_data={"agent-context-sdk": ["py.typed"]},
 )

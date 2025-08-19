@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.guide import Guide
+from agent-context-sdk.models.guide import Guide
 
 class TestGuide(unittest.TestCase):
     """Guide unit test stubs"""

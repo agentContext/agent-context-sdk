@@ -1,5 +1,5 @@
 [package]
-name = "openapi"
+name = "agent-context-sdk"
 version = "1.0.0"
 authors = ["OpenAPI Generator team and contributors"]
 description = "基本地址：`/v1/`（已在 servers 配置） - 普通接口 **无鉴权** - 统一错误：`{\"error\":\"reason\"}` - 分页：`page` 默认 1，`limit` 默认 20 - `score` 为相似度（仅 /guide/search/{pkgname} 返回） "

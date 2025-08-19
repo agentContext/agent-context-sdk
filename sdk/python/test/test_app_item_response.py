@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.app_item_response import AppItemResponse
+from agent-context-sdk.models.app_item_response import AppItemResponse
 
 class TestAppItemResponse(unittest.TestCase):
     """AppItemResponse unit test stubs"""
@@ -35,7 +35,7 @@ class TestAppItemResponse(unittest.TestCase):
         model = AppItemResponse()
         if include_optional:
             return AppItemResponse(
-                data = openapi_client.models.app.App(
+                data = agent-context-sdk.models.app.App(
                     id = 56, 
                     app_name = '', 
                     package_name = '', 
@@ -46,7 +46,7 @@ class TestAppItemResponse(unittest.TestCase):
             )
         else:
             return AppItemResponse(
-                data = openapi_client.models.app.App(
+                data = agent-context-sdk.models.app.App(
                     id = 56, 
                     app_name = '', 
                     package_name = '', 

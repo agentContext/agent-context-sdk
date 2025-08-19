@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.app_list_response import AppListResponse
+from agent-context-sdk.models.app_list_response import AppListResponse
 
 class TestAppListResponse(unittest.TestCase):
     """AppListResponse unit test stubs"""
@@ -36,7 +36,7 @@ class TestAppListResponse(unittest.TestCase):
         if include_optional:
             return AppListResponse(
                 data = [
-                    openapi_client.models.app.App(
+                    agent-context-sdk.models.app.App(
                         id = 56, 
                         app_name = '', 
                         package_name = '', 
@@ -45,7 +45,7 @@ class TestAppListResponse(unittest.TestCase):
                         create_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         update_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                     ],
-                paging = openapi_client.models.paging.Paging(
+                paging = agent-context-sdk.models.paging.Paging(
                     limit = 56, 
                     page = 56, 
                     total = 56, 
@@ -54,7 +54,7 @@ class TestAppListResponse(unittest.TestCase):
         else:
             return AppListResponse(
                 data = [
-                    openapi_client.models.app.App(
+                    agent-context-sdk.models.app.App(
                         id = 56, 
                         app_name = '', 
                         package_name = '', 
@@ -63,7 +63,7 @@ class TestAppListResponse(unittest.TestCase):
                         create_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         update_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                     ],
-                paging = openapi_client.models.paging.Paging(
+                paging = agent-context-sdk.models.paging.Paging(
                     limit = 56, 
                     page = 56, 
                     total = 56, 

@@ -1,4 +1,4 @@
-# org.openapitools.client - Kotlin client library for Agent App &amp; Guide Public API
+# agent-context-sdk - Kotlin client library for Agent App &amp; Guide Public API
 
 基本地址：`/v1/`（已在 servers 配置）
 - 普通接口 **无鉴权**
@@ -63,15 +63,15 @@ All URIs are relative to *https://api/v1*
 <a id="documentation-for-models"></a>
 ## Documentation for Models
 
- - [org.openapitools.client.models.App](docs/App.md)
- - [org.openapitools.client.models.AppItemResponse](docs/AppItemResponse.md)
- - [org.openapitools.client.models.AppListResponse](docs/AppListResponse.md)
- - [org.openapitools.client.models.ErrorResponse](docs/ErrorResponse.md)
- - [org.openapitools.client.models.Guide](docs/Guide.md)
- - [org.openapitools.client.models.GuideItemResponse](docs/GuideItemResponse.md)
- - [org.openapitools.client.models.GuideListResponse](docs/GuideListResponse.md)
- - [org.openapitools.client.models.GuideSearchResponse](docs/GuideSearchResponse.md)
- - [org.openapitools.client.models.Paging](docs/Paging.md)
+ - [agent-context-sdk.models.App](docs/App.md)
+ - [agent-context-sdk.models.AppItemResponse](docs/AppItemResponse.md)
+ - [agent-context-sdk.models.AppListResponse](docs/AppListResponse.md)
+ - [agent-context-sdk.models.ErrorResponse](docs/ErrorResponse.md)
+ - [agent-context-sdk.models.Guide](docs/Guide.md)
+ - [agent-context-sdk.models.GuideItemResponse](docs/GuideItemResponse.md)
+ - [agent-context-sdk.models.GuideListResponse](docs/GuideListResponse.md)
+ - [agent-context-sdk.models.GuideSearchResponse](docs/GuideSearchResponse.md)
+ - [agent-context-sdk.models.Paging](docs/Paging.md)
 
 
 <a id="documentation-for-authorization"></a>

@@ -1,4 +1,4 @@
-# OpenAPIClient-php
+# agent-context-sdk
 
 基本地址：`/v1/`（已在 servers 配置）
 - 普通接口 **无鉴权**
@@ -40,7 +40,7 @@ Download the files and include `autoload.php`:
 
 ```php
 <?php
-require_once('/path/to/OpenAPIClient-php/vendor/autoload.php');
+require_once('/path/to/agent-context-sdk/vendor/autoload.php');
 ```
 
 ## Getting Started

@@ -1,4 +1,4 @@
-# openapi::GuideListResponse
+# agent-context-sdk::GuideListResponse
 
 
 ## Properties

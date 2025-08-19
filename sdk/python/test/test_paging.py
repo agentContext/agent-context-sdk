@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.paging import Paging
+from agent-context-sdk.models.paging import Paging
 
 class TestPaging(unittest.TestCase):
     """Paging unit test stubs"""

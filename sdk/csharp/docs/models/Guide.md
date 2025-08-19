@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.Guide
+# agent-context-sdk.Model.Guide
 
 ## Properties
 

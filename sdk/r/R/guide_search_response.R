@@ -98,7 +98,7 @@ GuideSearchResponse <- R6::R6Class(
     fromJSON = function(input_json) {
       this_object <- jsonlite::fromJSON(input_json)
       if (!is.null(this_object$`data`)) {
-        self$`data` <- ApiClient$new()$deserializeObj(this_object$`data`, "array[Guide]", loadNamespace("openapi"))
+        self$`data` <- ApiClient$new()$deserializeObj(this_object$`data`, "array[Guide]", loadNamespace("agent-context-sdk"))
       }
       if (!is.null(this_object$`paging`)) {
         `paging_object` <- Paging$new()
@@ -106,7 +106,7 @@ GuideSearchResponse <- R6::R6Class(
         self$`paging` <- `paging_object`
       }
       if (!is.null(this_object$`score`)) {
-        self$`score` <- ApiClient$new()$deserializeObj(this_object$`score`, "array[numeric]", loadNamespace("openapi"))
+        self$`score` <- ApiClient$new()$deserializeObj(this_object$`score`, "array[numeric]", loadNamespace("agent-context-sdk"))
       }
       self
     },
@@ -129,9 +129,9 @@ GuideSearchResponse <- R6::R6Class(
     #' @return the instance of GuideSearchResponse
     fromJSONString = function(input_json) {
       this_object <- jsonlite::fromJSON(input_json)
-      self$`data` <- ApiClient$new()$deserializeObj(this_object$`data`, "array[Guide]", loadNamespace("openapi"))
+      self$`data` <- ApiClient$new()$deserializeObj(this_object$`data`, "array[Guide]", loadNamespace("agent-context-sdk"))
       self$`paging` <- Paging$new()$fromJSON(jsonlite::toJSON(this_object$`paging`, auto_unbox = TRUE, digits = NA))
-      self$`score` <- ApiClient$new()$deserializeObj(this_object$`score`, "array[numeric]", loadNamespace("openapi"))
+      self$`score` <- ApiClient$new()$deserializeObj(this_object$`score`, "array[numeric]", loadNamespace("agent-context-sdk"))
       self
     },
 

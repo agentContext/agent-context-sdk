@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.App
+# agent-context-sdk.Model.App
 
 ## Properties
 

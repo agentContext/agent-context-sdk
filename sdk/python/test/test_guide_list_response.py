@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.guide_list_response import GuideListResponse
+from agent-context-sdk.models.guide_list_response import GuideListResponse
 
 class TestGuideListResponse(unittest.TestCase):
     """GuideListResponse unit test stubs"""
@@ -36,7 +36,7 @@ class TestGuideListResponse(unittest.TestCase):
         if include_optional:
             return GuideListResponse(
                 data = [
-                    openapi_client.models.guide.Guide(
+                    agent-context-sdk.models.guide.Guide(
                         id = 56, 
                         package_name = '', 
                         vector = null, 
@@ -46,7 +46,7 @@ class TestGuideListResponse(unittest.TestCase):
                         source = '', 
                         solution = '', )
                     ],
-                paging = openapi_client.models.paging.Paging(
+                paging = agent-context-sdk.models.paging.Paging(
                     limit = 56, 
                     page = 56, 
                     total = 56, 
@@ -55,7 +55,7 @@ class TestGuideListResponse(unittest.TestCase):
         else:
             return GuideListResponse(
                 data = [
-                    openapi_client.models.guide.Guide(
+                    agent-context-sdk.models.guide.Guide(
                         id = 56, 
                         package_name = '', 
                         vector = null, 
@@ -65,7 +65,7 @@ class TestGuideListResponse(unittest.TestCase):
                         source = '', 
                         solution = '', )
                     ],
-                paging = openapi_client.models.paging.Paging(
+                paging = agent-context-sdk.models.paging.Paging(
                     limit = 56, 
                     page = 56, 
                     total = 56, 

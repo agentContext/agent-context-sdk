@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.Paging
+# agent-context-sdk.Model.Paging
 
 ## Properties
 

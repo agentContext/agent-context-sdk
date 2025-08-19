@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.guide_search_response import GuideSearchResponse
+from agent-context-sdk.models.guide_search_response import GuideSearchResponse
 
 class TestGuideSearchResponse(unittest.TestCase):
     """GuideSearchResponse unit test stubs"""
@@ -36,7 +36,7 @@ class TestGuideSearchResponse(unittest.TestCase):
         if include_optional:
             return GuideSearchResponse(
                 data = [
-                    openapi_client.models.guide.Guide(
+                    agent-context-sdk.models.guide.Guide(
                         id = 56, 
                         package_name = '', 
                         vector = null, 
@@ -46,7 +46,7 @@ class TestGuideSearchResponse(unittest.TestCase):
                         source = '', 
                         solution = '', )
                     ],
-                paging = openapi_client.models.paging.Paging(
+                paging = agent-context-sdk.models.paging.Paging(
                     limit = 56, 
                     page = 56, 
                     total = 56, 
@@ -58,7 +58,7 @@ class TestGuideSearchResponse(unittest.TestCase):
         else:
             return GuideSearchResponse(
                 data = [
-                    openapi_client.models.guide.Guide(
+                    agent-context-sdk.models.guide.Guide(
                         id = 56, 
                         package_name = '', 
                         vector = null, 
@@ -68,7 +68,7 @@ class TestGuideSearchResponse(unittest.TestCase):
                         source = '', 
                         solution = '', )
                     ],
-                paging = openapi_client.models.paging.Paging(
+                paging = agent-context-sdk.models.paging.Paging(
                     limit = 56, 
                     page = 56, 
                     total = 56, 

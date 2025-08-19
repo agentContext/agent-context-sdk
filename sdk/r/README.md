@@ -1,4 +1,4 @@
-# R API client for openapi
+# R API client for agent-context-sdk
 
 基本地址：`/v1/`（已在 servers 配置）
 - 普通接口 **无鉴权**
@@ -33,14 +33,14 @@ install.packages("base64enc")
 git clone https://github.com/GIT_USER_ID/GIT_REPO_ID
 cd GIT_REPO_ID
 R CMD build .
-R CMD check openapi_1.0.0.tar.gz --no-manual
-R CMD INSTALL --preclean openapi_1.0.0.tar.gz
+R CMD check agent-context-sdk_1.0.0.tar.gz --no-manual
+R CMD INSTALL --preclean agent-context-sdk_1.0.0.tar.gz
 ```
 
 ### Install the package
 
 ```R
-install.packages("openapi")
+install.packages("agent-context-sdk")
 ```
 
 To install directly from Github, use `devtools`:
@@ -52,13 +52,13 @@ install_github("GIT_USER_ID/GIT_REPO_ID")
 
 To install the package from a local file:
 ```R
-install.packages("openapi_1.0.0.tar.gz", repos = NULL, type = "source")
+install.packages("agent-context-sdk_1.0.0.tar.gz", repos = NULL, type = "source")
 ```
 
 ### Usage
 
 ```R
-library(openapi)
+library(agent-context-sdk)
 ```
 
 ### Reformat code

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.app_list_response import AppListResponse
+from agent-context-sdk.models.app_list_response import AppListResponse
 
 # TODO update the JSON string below
 json = "{}"

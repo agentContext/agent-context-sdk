@@ -1,4 +1,4 @@
-# openapi_client.AppApi
+# agent-context-sdk.AppApi
 
 All URIs are relative to *https://api/v1*
 
@@ -19,22 +19,22 @@ Method | HTTP request | Description
 
 
 ```python
-import openapi_client
-from openapi_client.models.app_list_response import AppListResponse
-from openapi_client.rest import ApiException
+import agent-context-sdk
+from agent-context-sdk.models.app_list_response import AppListResponse
+from agent-context-sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = agent-context-sdk.Configuration(
     host = "https://api/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with agent-context-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.AppApi(api_client)
+    api_instance = agent-context-sdk.AppApi(api_client)
     page = 1 # int | 页码（默认 1） (optional) (default to 1)
     limit = 20 # int | 每页数量（默认 20） (optional) (default to 20)
 
@@ -88,22 +88,22 @@ No authorization required
 
 
 ```python
-import openapi_client
-from openapi_client.models.app_item_response import AppItemResponse
-from openapi_client.rest import ApiException
+import agent-context-sdk
+from agent-context-sdk.models.app_item_response import AppItemResponse
+from agent-context-sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = agent-context-sdk.Configuration(
     host = "https://api/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with agent-context-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.AppApi(api_client)
+    api_instance = agent-context-sdk.AppApi(api_client)
     id = 56 # int | 
 
     try:
@@ -155,22 +155,22 @@ No authorization required
 
 
 ```python
-import openapi_client
-from openapi_client.models.app_item_response import AppItemResponse
-from openapi_client.rest import ApiException
+import agent-context-sdk
+from agent-context-sdk.models.app_item_response import AppItemResponse
+from agent-context-sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = agent-context-sdk.Configuration(
     host = "https://api/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with agent-context-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.AppApi(api_client)
+    api_instance = agent-context-sdk.AppApi(api_client)
     pkgname = 'pkgname_example' # str | 
 
     try:
@@ -222,22 +222,22 @@ No authorization required
 
 
 ```python
-import openapi_client
-from openapi_client.models.app_list_response import AppListResponse
-from openapi_client.rest import ApiException
+import agent-context-sdk
+from agent-context-sdk.models.app_list_response import AppListResponse
+from agent-context-sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = agent-context-sdk.Configuration(
     host = "https://api/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with agent-context-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.AppApi(api_client)
+    api_instance = agent-context-sdk.AppApi(api_client)
     q = 'q_example' # str | 搜索关键词
     page = 1 # int | 页码（默认 1） (optional) (default to 1)
     limit = 20 # int | 每页数量（默认 20） (optional) (default to 20)

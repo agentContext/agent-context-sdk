@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.GuideItemResponse
+# agent-context-sdk.Model.GuideItemResponse
 
 ## Properties
 

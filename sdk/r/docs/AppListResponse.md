@@ -1,4 +1,4 @@
-# openapi::AppListResponse
+# agent-context-sdk::AppListResponse
 
 
 ## Properties

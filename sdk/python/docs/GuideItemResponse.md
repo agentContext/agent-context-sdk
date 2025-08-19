@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.guide_item_response import GuideItemResponse
+from agent-context-sdk.models.guide_item_response import GuideItemResponse
 
 # TODO update the JSON string below
 json = "{}"

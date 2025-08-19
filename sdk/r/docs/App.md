@@ -1,4 +1,4 @@
-# openapi::App
+# agent-context-sdk::App
 
 
 ## Properties

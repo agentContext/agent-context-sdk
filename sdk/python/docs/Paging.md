@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.paging import Paging
+from agent-context-sdk.models.paging import Paging
 
 # TODO update the JSON string below
 json = "{}"

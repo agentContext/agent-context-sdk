@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.GuideSearchResponse
+# agent-context-sdk.Model.GuideSearchResponse
 
 ## Properties
 

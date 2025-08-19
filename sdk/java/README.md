@@ -2,7 +2,7 @@
 
 Agent App &amp; Guide Public API
 - API version: 1.0.0
-  - Build date: 2025-08-19T22:49:06.853074200+08:00[Asia/Shanghai]
+  - Build date: 2025-08-19T23:30:57.541901900+08:00[Asia/Shanghai]
   - Generator version: 7.14.0
 
 基本地址：`/v1/`（已在 servers 配置）

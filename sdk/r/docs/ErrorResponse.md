@@ -1,4 +1,4 @@
-# openapi::ErrorResponse
+# agent-context-sdk::ErrorResponse
 
 
 ## Properties

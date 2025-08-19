@@ -1,4 +1,4 @@
-# openapi::GuideSearchResponse
+# agent-context-sdk::GuideSearchResponse
 
 
 ## Properties

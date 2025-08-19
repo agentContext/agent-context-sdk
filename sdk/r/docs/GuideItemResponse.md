@@ -1,4 +1,4 @@
-# openapi::GuideItemResponse
+# agent-context-sdk::GuideItemResponse
 
 
 ## Properties

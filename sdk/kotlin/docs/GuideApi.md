@@ -19,8 +19,8 @@ All URIs are relative to *https://api/v1*
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import agent-context-sdk.infrastructure.*
+//import agent-context-sdk.models.*
 
 val apiInstance = GuideApi()
 val q : kotlin.String = q_example // kotlin.String | 搜索关键词
@@ -67,8 +67,8 @@ No authorization required
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import agent-context-sdk.infrastructure.*
+//import agent-context-sdk.models.*
 
 val apiInstance = GuideApi()
 val id : kotlin.Long = 789 // kotlin.Long | 
@@ -111,8 +111,8 @@ No authorization required
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import agent-context-sdk.infrastructure.*
+//import agent-context-sdk.models.*
 
 val apiInstance = GuideApi()
 val pkgname : kotlin.String = pkgname_example // kotlin.String | 
@@ -159,8 +159,8 @@ No authorization required
 ### Example
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
+//import agent-context-sdk.infrastructure.*
+//import agent-context-sdk.models.*
 
 val apiInstance = GuideApi()
 val pkgname : kotlin.String = pkgname_example // kotlin.String | 

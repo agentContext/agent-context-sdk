@@ -1,4 +1,4 @@
-# openapi_client.GuideApi
+# agent-context-sdk.GuideApi
 
 All URIs are relative to *https://api/v1*
 
@@ -19,22 +19,22 @@ Method | HTTP request | Description
 
 
 ```python
-import openapi_client
-from openapi_client.models.guide_list_response import GuideListResponse
-from openapi_client.rest import ApiException
+import agent-context-sdk
+from agent-context-sdk.models.guide_list_response import GuideListResponse
+from agent-context-sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = agent-context-sdk.Configuration(
     host = "https://api/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with agent-context-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.GuideApi(api_client)
+    api_instance = agent-context-sdk.GuideApi(api_client)
     q = 'q_example' # str | 搜索关键词
     page = 1 # int | 页码（默认 1） (optional) (default to 1)
     limit = 20 # int | 每页数量（默认 20） (optional) (default to 20)
@@ -90,22 +90,22 @@ No authorization required
 
 
 ```python
-import openapi_client
-from openapi_client.models.guide_item_response import GuideItemResponse
-from openapi_client.rest import ApiException
+import agent-context-sdk
+from agent-context-sdk.models.guide_item_response import GuideItemResponse
+from agent-context-sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = agent-context-sdk.Configuration(
     host = "https://api/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with agent-context-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.GuideApi(api_client)
+    api_instance = agent-context-sdk.GuideApi(api_client)
     id = 56 # int | 
 
     try:
@@ -157,22 +157,22 @@ No authorization required
 
 
 ```python
-import openapi_client
-from openapi_client.models.guide_list_response import GuideListResponse
-from openapi_client.rest import ApiException
+import agent-context-sdk
+from agent-context-sdk.models.guide_list_response import GuideListResponse
+from agent-context-sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = agent-context-sdk.Configuration(
     host = "https://api/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with agent-context-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.GuideApi(api_client)
+    api_instance = agent-context-sdk.GuideApi(api_client)
     pkgname = 'pkgname_example' # str | 
     page = 1 # int | 页码（默认 1） (optional) (default to 1)
     limit = 20 # int | 每页数量（默认 20） (optional) (default to 20)
@@ -228,22 +228,22 @@ No authorization required
 
 
 ```python
-import openapi_client
-from openapi_client.models.guide_search_response import GuideSearchResponse
-from openapi_client.rest import ApiException
+import agent-context-sdk
+from agent-context-sdk.models.guide_search_response import GuideSearchResponse
+from agent-context-sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = agent-context-sdk.Configuration(
     host = "https://api/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with agent-context-sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.GuideApi(api_client)
+    api_instance = agent-context-sdk.GuideApi(api_client)
     pkgname = 'pkgname_example' # str | 
     q = 'q_example' # str | 搜索关键词
     page = 1 # int | 页码（默认 1） (optional) (default to 1)

@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.app import App
+from agent-context-sdk.models.app import App
 
 class TestApp(unittest.TestCase):
     """App unit test stubs"""

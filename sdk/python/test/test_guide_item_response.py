@@ -14,7 +14,7 @@
 
 import unittest
 
-from openapi_client.models.guide_item_response import GuideItemResponse
+from agent-context-sdk.models.guide_item_response import GuideItemResponse
 
 class TestGuideItemResponse(unittest.TestCase):
     """GuideItemResponse unit test stubs"""
@@ -35,7 +35,7 @@ class TestGuideItemResponse(unittest.TestCase):
         model = GuideItemResponse()
         if include_optional:
             return GuideItemResponse(
-                data = openapi_client.models.guide.Guide(
+                data = agent-context-sdk.models.guide.Guide(
                     id = 56, 
                     package_name = '', 
                     vector = null, 
@@ -47,7 +47,7 @@ class TestGuideItemResponse(unittest.TestCase):
             )
         else:
             return GuideItemResponse(
-                data = openapi_client.models.guide.Guide(
+                data = agent-context-sdk.models.guide.Guide(
                     id = 56, 
                     package_name = '', 
                     vector = null, 

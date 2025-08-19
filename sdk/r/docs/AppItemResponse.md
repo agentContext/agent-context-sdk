@@ -1,4 +1,4 @@
-# openapi::AppItemResponse
+# agent-context-sdk::AppItemResponse
 
 
 ## Properties

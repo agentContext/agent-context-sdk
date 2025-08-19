@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 ### Example
 ```R
-library(openapi)
+library(agent-context-sdk)
 
 # 获取 app 列表
 #
@@ -65,7 +65,7 @@ No authorization required
 
 ### Example
 ```R
-library(openapi)
+library(agent-context-sdk)
 
 # 获取指定 app 信息（按 id）
 #
@@ -111,7 +111,7 @@ No authorization required
 
 ### Example
 ```R
-library(openapi)
+library(agent-context-sdk)
 
 # 获取指定 app 信息（按包名）
 #
@@ -157,7 +157,7 @@ No authorization required
 
 ### Example
 ```R
-library(openapi)
+library(agent-context-sdk)
 
 # 搜索 app
 #

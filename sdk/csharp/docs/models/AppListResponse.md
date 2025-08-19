@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.AppListResponse
+# agent-context-sdk.Model.AppListResponse
 
 ## Properties
 

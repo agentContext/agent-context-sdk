@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.AppItemResponse
+# agent-context-sdk.Model.AppItemResponse
 
 ## Properties
 

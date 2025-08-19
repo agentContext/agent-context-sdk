@@ -15,7 +15,7 @@
 #' \dontrun{
 #' ####################  GuideGet  ####################
 #'
-#' library(openapi)
+#' library(agent-context-sdk)
 #' var_q <- "q_example" # character | 搜索关键词
 #' var_page <- 1 # integer | 页码（默认 1） (Optional)
 #' var_limit <- 20 # integer | 每页数量（默认 20） (Optional)
@@ -31,7 +31,7 @@
 #'
 #' ####################  GuideIdIdGet  ####################
 #'
-#' library(openapi)
+#' library(agent-context-sdk)
 #' var_id <- 56 # integer | 
 #'
 #' #获取指定 guide（按 id）
@@ -45,7 +45,7 @@
 #'
 #' ####################  GuidePkgPkgnameGet  ####################
 #'
-#' library(openapi)
+#' library(agent-context-sdk)
 #' var_pkgname <- "pkgname_example" # character | 
 #' var_page <- 1 # integer | 页码（默认 1） (Optional)
 #' var_limit <- 20 # integer | 每页数量（默认 20） (Optional)
@@ -61,7 +61,7 @@
 #'
 #' ####################  GuideSearchPkgnameGet  ####################
 #'
-#' library(openapi)
+#' library(agent-context-sdk)
 #' var_pkgname <- "pkgname_example" # character | 
 #' var_q <- "q_example" # character | 搜索关键词
 #' var_page <- 1 # integer | 页码（默认 1） (Optional)

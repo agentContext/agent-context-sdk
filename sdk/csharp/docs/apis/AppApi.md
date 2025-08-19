@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Api.AppApi
+# agent-context-sdk.Api.AppApi
 
 All URIs are relative to *https://api/v1*
 

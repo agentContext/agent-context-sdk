@@ -1,4 +1,4 @@
 library(testthat)
-library(openapi)
+library(agent-context-sdk)
 
-test_check("openapi")
+test_check("agent-context-sdk")

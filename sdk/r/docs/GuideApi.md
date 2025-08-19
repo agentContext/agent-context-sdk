@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 ### Example
 ```R
-library(openapi)
+library(agent-context-sdk)
 
 # 获取 guide 列表（按关键词）
 #
@@ -67,7 +67,7 @@ No authorization required
 
 ### Example
 ```R
-library(openapi)
+library(agent-context-sdk)
 
 # 获取指定 guide（按 id）
 #
@@ -113,7 +113,7 @@ No authorization required
 
 ### Example
 ```R
-library(openapi)
+library(agent-context-sdk)
 
 # 获取某包名下的 guide 列表
 #
@@ -163,7 +163,7 @@ No authorization required
 
 ### Example
 ```R
-library(openapi)
+library(agent-context-sdk)
 
 # 在指定包下根据关键词搜索 guide（词向量相似度）
 #

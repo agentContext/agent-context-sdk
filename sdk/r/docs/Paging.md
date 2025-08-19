@@ -1,4 +1,4 @@
-# openapi::Paging
+# agent-context-sdk::Paging
 
 
 ## Properties

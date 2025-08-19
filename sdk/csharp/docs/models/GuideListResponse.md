@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.GuideListResponse
+# agent-context-sdk.Model.GuideListResponse
 
 ## Properties
 
