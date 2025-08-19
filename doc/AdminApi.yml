@@ -1,0 +1,370 @@
+openapi: 3.1.0
+info:
+  title: Admin API
+  version: 1.0.0
+  description: |
+    管理端接口（**有鉴权**）。统一前缀：`/v1/admin/`  
+    - 分页参数：`page` 默认 **1**；`limit` 默认 **20**  
+    - 相似度字段：`score`（如返回中使用）  
+    - 统一错误：`{"error":"reason"}`  
+    - 统一成功：`{"ok":true}`
+servers:
+  - url: /v1/admin
+    description: 默认服务地址（相对）
+  - url: https://api.example.com/v1/admin
+    description: 线上服务
+  - url: https://staging-api.example.com/v1/admin
+    description: 测试/预发环境
+security:
+  - BearerAuth: []   # 除 /auth 外的所有管理端接口均需鉴权
+
+paths:
+  /auth:
+    get:
+      summary: 鉴权
+      description: 检查是否有权限
+   
+      responses:
+        "200":
+          description: 成功
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+              examples:
+                ok:
+                  value:
+                    ok: true
+        "400":
+          $ref: '#/components/responses/BadRequest'
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+
+  /app:
+    post:
+      summary: 新建 app
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/AppCreate' }
+            examples:
+              sample:
+                value:
+                  appName: AgentContext
+                  pkgName: com.example.agentcontext
+                  description: Mock record for AgentContext.
+      responses:
+        "200":
+          description: 成功（统一成功格式）
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/OkResponse' }
+              examples:
+                ok:
+                  value: { ok: true }
+        "400": { $ref: '#/components/responses/BadRequest' }
+        "401": { $ref: '#/components/responses/Unauthorized' }
+        "409":
+          description: 冲突（如 pkg 已存在）
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorResponse' }
+
+  /app/{pkgname}:
+    patch:
+      summary: 修改 app（按包名）
+      parameters:
+        - in: path
+          name: pkgname
+          required: true
+          schema:
+            type: string
+            minLength: 1
+            maxLength: 512
+            pattern: '^[a-z0-9._-]+$'   # lowercase 约束
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/AppUpdate' }
+            examples:
+              sample:
+                value:
+                  appName: AgentContext Pro
+                  description: Updated description.
+      responses:
+        "200":
+          description: 成功
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/OkResponse' }
+              examples: { ok: { value: { ok: true } } }
+        "400": { $ref: '#/components/responses/BadRequest' }
+        "401": { $ref: '#/components/responses/Unauthorized' }
+        "404": { $ref: '#/components/responses/NotFound' }
+
+    delete:
+      summary: 删除 app（按包名）
+      parameters:
+        - in: path
+          name: pkgname
+          required: true
+          schema:
+            type: string
+            minLength: 1
+            maxLength: 512
+            pattern: '^[a-z0-9._-]+$'
+      responses:
+        "200":
+          description: 成功
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/OkResponse' }
+        "401": { $ref: '#/components/responses/Unauthorized' }
+        "404": { $ref: '#/components/responses/NotFound' }
+
+  /guide/{pkgname}:
+    post:
+      summary: 新建 guide（归属某 app）
+      parameters:
+        - in: path
+          name: pkgname
+          required: true
+          schema:
+            type: string
+            minLength: 1
+            maxLength: 512
+            pattern: '^[a-z0-9._-]+$'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/GuideCreate' }
+            examples:
+              sample:
+                value:
+                  action: "Open Settings"
+                  solution: "Go to Settings > About, tap 7 times..."
+                  description: "Enable developer options"
+                  source: "internal"
+      responses:
+        "200":
+          description: 成功
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/OkResponse' }
+        "400": { $ref: '#/components/responses/BadRequest' }
+        "401": { $ref: '#/components/responses/Unauthorized' }
+        "404": { $ref: '#/components/responses/NotFound' }
+
+  /guide/{id}:
+    patch:
+      summary: 修改 guide（按 id）
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: integer, minimum: 1 }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/GuideUpdate' }
+            examples:
+              sample:
+                value:
+                  action: "Open Settings (updated)"
+                  solution: "Updated step-by-step..."
+                  description: "Refined description"
+                  source: "kb"
+                  pkgName: "com.example.agentcontext"
+      responses:
+        "200":
+          description: 成功
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/OkResponse' }
+        "400": { $ref: '#/components/responses/BadRequest' }
+        "401": { $ref: '#/components/responses/Unauthorized' }
+        "404": { $ref: '#/components/responses/NotFound' }
+
+    delete:
+      summary: 删除 guide（按 id）
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: integer, minimum: 1 }
+      responses:
+        "200":
+          description: 成功
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/OkResponse' }
+        "401": { $ref: '#/components/responses/Unauthorized' }
+        "404": { $ref: '#/components/responses/NotFound' }
+
+  /guide-deleteall/{pkgname}:
+    delete:
+      summary: 删除某 app 的全部 guides
+      parameters:
+        - in: path
+          name: pkgname
+          required: true
+          schema:
+            type: string
+            minLength: 1
+            maxLength: 512
+            pattern: '^[a-z0-9._-]+$'
+      responses:
+        "200":
+          description: 成功
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/OkResponse' }
+        "401": { $ref: '#/components/responses/Unauthorized' }
+        "404": { $ref: '#/components/responses/NotFound' }
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: |
+        使用 `/auth` 获取的 JWT，放入 `Authorization: Bearer <token>`。
+
+  schemas:
+    OkResponse:
+      type: object
+      additionalProperties: false
+      properties:
+        ok: { type: boolean, const: true }
+      required: [ok]
+
+    ErrorResponse:
+      type: object
+      additionalProperties: false
+      properties:
+        error: { type: string }
+      required: [error]
+
+    AuthResponse:
+      type: object
+      additionalProperties: false
+      properties:
+        ok: { type: boolean, const: true }
+        token: { type: string, minLength: 1 }
+      required: [ok, token]
+
+    AppCreate:
+      type: object
+      additionalProperties: false
+      properties:
+        appName:
+          type: string
+          minLength: 0
+          maxLength: 256
+        pkgName:
+          type: string
+          minLength: 0
+          maxLength: 512
+          pattern: '^[a-z0-9._-]+$'   # lowercase
+          description: lowercase only（`validate:"lowercase"`）
+        description:
+          type: string
+          minLength: 0
+          maxLength: 4096
+      required: [appName, pkgName]
+
+    AppUpdate:
+      type: object
+      additionalProperties: false
+      properties:
+        appName:
+          type: string
+          minLength: 0
+          maxLength: 256
+        description:
+          type: string
+          minLength: 0
+          maxLength: 4096
+
+    GuideCreate:
+      type: object
+      additionalProperties: false
+      properties:
+        action:
+          type: string
+          minLength: 0
+          maxLength: 256
+        solution:
+          type: string
+          minLength: 0
+          maxLength: 65535
+        description:
+          type: string
+          minLength: 0
+          maxLength: 4096
+        source:
+          type: string
+          minLength: 0
+          maxLength: 256
+      required: [action, solution]
+
+    GuideUpdate:
+      type: object
+      additionalProperties: false
+      properties:
+        action:
+          type: string
+          nullable: true
+          minLength: 0
+          maxLength: 256
+        solution:
+          type: string
+          nullable: true
+          minLength: 0
+          maxLength: 65535
+        description:
+          type: string
+          nullable: true
+          minLength: 0
+          maxLength: 4096
+        source:
+          type: string
+          nullable: true
+          minLength: 0
+          maxLength: 256
+        pkgName:
+          type: string
+          nullable: true
+          minLength: 0
+          maxLength: 256
+
+  responses:
+    BadRequest:
+      description: 参数/格式错误
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ErrorResponse' }
+          examples:
+            bad:
+              value: { error: "detail for invalid param" }
+    Unauthorized:
+      description: 未授权或 Token 无效/过期
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ErrorResponse' }
+          examples:
+            unauthorized:
+              value: { error: "token error" }
+    NotFound:
+      description: 资源不存在
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ErrorResponse' }
+          examples:
+            nf:
+              value: { error: "not found" }

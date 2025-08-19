@@ -1,0 +1,655 @@
+openapi: 3.1.0
+info:
+  description: |
+    基本地址：`/v1/`（已在 servers 配置）
+    - 普通接口 **无鉴权**
+    - 统一错误：`{"error":"reason"}`
+    - 分页：`page` 默认 1，`limit` 默认 20
+    - `score` 为相似度（仅 /guide/search/{pkgname} 返回）
+  title: Agent App & Guide Public API
+  version: 1.0.0
+servers:
+- description: 生产环境
+  url: https://api/v1
+- description: 测试环境
+  url: http://lab.netmc.icu:18080/v1
+- description: 本地开发环境
+  url: http://localhost:8080/v1
+tags:
+- description: App 获取与搜索
+  name: app
+- description: Guide 获取与搜索（app 对应若干 guide）
+  name: guide
+paths:
+  /app:
+    get:
+      parameters:
+      - $ref: "#/components/parameters/Page"
+      - $ref: "#/components/parameters/Limit"
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                sample:
+                  value:
+                    data:
+                    - Id: 1
+                      AppName: AgentContext
+                      PackageName: com.example.agentcontext
+                      Description: Mock record for AgentContext.
+                      Tokdens: 7
+                      CreateAt: 2025-08-01T10:00:00+08:00
+                      UpdateAt: 2025-08-02T11:00:00+08:00
+                    paging:
+                      limit: 1
+                      page: 1
+                      total: 25
+              schema:
+                $ref: "#/components/schemas/AppListResponse"
+          description: 成功
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+          description: 统一错误
+      summary: 获取 app 列表
+      tags:
+      - app
+      x-accepts:
+      - application/json
+  /app/id/{id}:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                sample:
+                  value:
+                    data:
+                      Id: 1
+                      AppName: AgentContext
+                      PackageName: com.example.agentcontext
+                      Description: Mock record for AgentContext.
+                      Tokdens: 7
+                      CreateAt: 2025-08-01T10:00:00+08:00
+                      UpdateAt: 2025-08-02T11:00:00+08:00
+              schema:
+                $ref: "#/components/schemas/AppItemResponse"
+          description: 成功
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+          description: 统一错误
+      summary: 获取指定 app 信息（按 id）
+      tags:
+      - app
+      x-accepts:
+      - application/json
+  /app/pkg/{pkgname}:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: pkgname
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                sample:
+                  value:
+                    data:
+                      Id: 1
+                      AppName: AgentContext
+                      PackageName: com.example.agentcontext
+                      Description: Mock record for AgentContext.
+                      Tokdens: 7
+                      CreateAt: 2025-08-01T10:00:00+08:00
+                      UpdateAt: 2025-08-02T11:00:00+08:00
+              schema:
+                $ref: "#/components/schemas/AppItemResponse"
+          description: 成功
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+          description: 统一错误
+      summary: 获取指定 app 信息（按包名）
+      tags:
+      - app
+      x-accepts:
+      - application/json
+  /app/search:
+    get:
+      parameters:
+      - $ref: "#/components/parameters/Q"
+      - $ref: "#/components/parameters/Page"
+      - $ref: "#/components/parameters/Limit"
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                sample:
+                  value:
+                    data:
+                    - Id: 1
+                      AppName: AgentContext
+                      PackageName: com.example.agentcontext
+                      Description: Mock record for AgentContext.
+                      Tokdens: 7
+                      CreateAt: 2025-08-01T10:00:00+08:00
+                      UpdateAt: 2025-08-02T11:00:00+08:00
+                    - Id: 16
+                      AppName: VMConsole
+                      PackageName: com.example.vmconsole
+                      Description: Mock record for VMConsole.
+                      Tokdens: 0
+                      CreateAt: 2025-08-16T10:00:00+08:00
+                      UpdateAt: 2025-08-17T12:00:00+08:00
+                    paging:
+                      kw: con
+                      limit: 20
+                      page: 1
+                      total: 2
+              schema:
+                $ref: "#/components/schemas/AppListResponse"
+          description: 成功
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+          description: 统一错误
+      summary: 搜索 app
+      tags:
+      - app
+      x-accepts:
+      - application/json
+  /guide:
+    get:
+      parameters:
+      - $ref: "#/components/parameters/Q"
+      - $ref: "#/components/parameters/Page"
+      - $ref: "#/components/parameters/Limit"
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                sample:
+                  value:
+                    data:
+                    - id: 460138815956270526
+                      packageName: com.example.agentcontext
+                      vector: null
+                      action: ces
+                      description: ces
+                      tokens: 4
+                      source: ces
+                      solution: ces
+                    paging:
+                      limit: 1
+                      page: 1
+                      total: 2
+              schema:
+                $ref: "#/components/schemas/GuideListResponse"
+          description: 成功
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+          description: 统一错误
+      summary: 获取 guide 列表（按关键词）
+      tags:
+      - guide
+      x-accepts:
+      - application/json
+  /guide/id/{id}:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int64
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                sample:
+                  value:
+                    data:
+                      id: 460138815956270526
+                      packageName: com.example.agentcontext
+                      vector: null
+                      action: ces
+                      description: ces
+                      tokens: 4
+                      source: ces
+                      solution: ces
+              schema:
+                $ref: "#/components/schemas/GuideItemResponse"
+          description: 成功
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+          description: 统一错误
+      summary: 获取指定 guide（按 id）
+      tags:
+      - guide
+      x-accepts:
+      - application/json
+  /guide/pkg/{pkgname}:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: pkgname
+        required: true
+        schema:
+          type: string
+        style: simple
+      - $ref: "#/components/parameters/Page"
+      - $ref: "#/components/parameters/Limit"
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                sample:
+                  value:
+                    data:
+                    - id: 460138815956270526
+                      packageName: com.example.agentcontext
+                      vector: null
+                      action: ces
+                      description: ces
+                      tokens: 4
+                      source: ces
+                      solution: ces
+                    - id: 460138815956270528
+                      packageName: com.example.agentcontext
+                      vector: null
+                      action: ccc
+                      description: ccc
+                      tokens: 3
+                      source: ccc
+                      solution: ccc
+                    paging:
+                      limit: 20
+                      page: 1
+                      total: 2
+              schema:
+                $ref: "#/components/schemas/GuideListResponse"
+          description: 成功
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+          description: 统一错误
+      summary: 获取某包名下的 guide 列表
+      tags:
+      - guide
+      x-accepts:
+      - application/json
+  /guide/search/{pkgname}:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: pkgname
+        required: true
+        schema:
+          type: string
+        style: simple
+      - $ref: "#/components/parameters/Q"
+      - $ref: "#/components/parameters/Page"
+      - $ref: "#/components/parameters/Limit"
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                sample:
+                  value:
+                    data:
+                    - id: 460138815956270528
+                      packageName: com.example.agentcontext
+                      vector: null
+                      action: ccc
+                      description: ccc
+                      tokens: 3
+                      source: ccc
+                      solution: ccc
+                    - id: 460138815956270526
+                      packageName: com.example.agentcontext
+                      vector: null
+                      action: ces
+                      description: ces
+                      tokens: 4
+                      source: ces
+                      solution: ces
+                    paging:
+                      limit: 20
+                      page: 1
+                      total: 2
+                    score:
+                    - 0.5048456
+                    - 0.39223891
+              schema:
+                $ref: "#/components/schemas/GuideSearchResponse"
+          description: 成功
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+          description: 统一错误
+      summary: 在指定包下根据关键词搜索 guide（词向量相似度）
+      tags:
+      - guide
+      x-accepts:
+      - application/json
+components:
+  parameters:
+    Page:
+      description: 页码（默认 1）
+      explode: true
+      in: query
+      name: page
+      required: false
+      schema:
+        default: 1
+        minimum: 1
+        type: integer
+      style: form
+    Limit:
+      description: 每页数量（默认 20）
+      explode: true
+      in: query
+      name: limit
+      required: false
+      schema:
+        default: 20
+        minimum: 1
+        type: integer
+      style: form
+    Q:
+      description: 搜索关键词
+      explode: true
+      in: query
+      name: q
+      required: true
+      schema:
+        minLength: 1
+        type: string
+      style: form
+  schemas:
+    ErrorResponse:
+      example:
+        error: error
+      properties:
+        error:
+          description: 错误原因
+          type: string
+      required:
+      - error
+    Paging:
+      example:
+        total: 5
+        limit: 1
+        page: 5
+        kw: kw
+      properties:
+        limit:
+          type: integer
+        page:
+          type: integer
+        total:
+          type: integer
+        kw:
+          description: 可选，搜索关键词回显
+          type: string
+      required:
+      - limit
+      - page
+      - total
+    App:
+      example:
+        Description: Description
+        UpdateAt: 2000-01-23T04:56:07.000+00:00
+        CreateAt: 2000-01-23T04:56:07.000+00:00
+        PackageName: PackageName
+        Id: 0
+        Tokdens: 6
+        AppName: AppName
+      properties:
+        Id:
+          type: integer
+        AppName:
+          type: string
+        PackageName:
+          type: string
+        Description:
+          type: string
+        Tokdens:
+          type: integer
+        CreateAt:
+          format: date-time
+          type: string
+        UpdateAt:
+          format: date-time
+          type: string
+      required:
+      - AppName
+      - CreateAt
+      - Description
+      - Id
+      - PackageName
+      - Tokdens
+      - UpdateAt
+    AppListResponse:
+      example:
+        data:
+        - Description: Description
+          UpdateAt: 2000-01-23T04:56:07.000+00:00
+          CreateAt: 2000-01-23T04:56:07.000+00:00
+          PackageName: PackageName
+          Id: 0
+          Tokdens: 6
+          AppName: AppName
+        - Description: Description
+          UpdateAt: 2000-01-23T04:56:07.000+00:00
+          CreateAt: 2000-01-23T04:56:07.000+00:00
+          PackageName: PackageName
+          Id: 0
+          Tokdens: 6
+          AppName: AppName
+        paging:
+          total: 5
+          limit: 1
+          page: 5
+          kw: kw
+      properties:
+        data:
+          items:
+            $ref: "#/components/schemas/App"
+          type: array
+        paging:
+          $ref: "#/components/schemas/Paging"
+      required:
+      - data
+      - paging
+    AppItemResponse:
+      example:
+        data:
+          Description: Description
+          UpdateAt: 2000-01-23T04:56:07.000+00:00
+          CreateAt: 2000-01-23T04:56:07.000+00:00
+          PackageName: PackageName
+          Id: 0
+          Tokdens: 6
+          AppName: AppName
+      properties:
+        data:
+          $ref: "#/components/schemas/App"
+      required:
+      - data
+    Guide:
+      example:
+        solution: solution
+        action: action
+        description: description
+        vector: ""
+        tokens: 6
+        id: 0
+        packageName: packageName
+        source: source
+      properties:
+        id:
+          format: int64
+          type: integer
+        packageName:
+          type: string
+        vector: {}
+        action:
+          type: string
+        description:
+          type: string
+        tokens:
+          type: integer
+        source:
+          type: string
+        solution:
+          type: string
+      required:
+      - action
+      - description
+      - id
+      - packageName
+      - solution
+      - source
+      - tokens
+      - vector
+    GuideListResponse:
+      example:
+        data:
+        - solution: solution
+          action: action
+          description: description
+          vector: ""
+          tokens: 6
+          id: 0
+          packageName: packageName
+          source: source
+        - solution: solution
+          action: action
+          description: description
+          vector: ""
+          tokens: 6
+          id: 0
+          packageName: packageName
+          source: source
+        paging:
+          total: 5
+          limit: 1
+          page: 5
+          kw: kw
+      properties:
+        data:
+          items:
+            $ref: "#/components/schemas/Guide"
+          type: array
+        paging:
+          $ref: "#/components/schemas/Paging"
+      required:
+      - data
+      - paging
+    GuideItemResponse:
+      example:
+        data:
+          solution: solution
+          action: action
+          description: description
+          vector: ""
+          tokens: 6
+          id: 0
+          packageName: packageName
+          source: source
+      properties:
+        data:
+          $ref: "#/components/schemas/Guide"
+      required:
+      - data
+    GuideSearchResponse:
+      example:
+        score:
+        - 0.8008282
+        - 0.8008282
+        data:
+        - solution: solution
+          action: action
+          description: description
+          vector: ""
+          tokens: 6
+          id: 0
+          packageName: packageName
+          source: source
+        - solution: solution
+          action: action
+          description: description
+          vector: ""
+          tokens: 6
+          id: 0
+          packageName: packageName
+          source: source
+        paging:
+          total: 5
+          limit: 1
+          page: 5
+          kw: kw
+      properties:
+        data:
+          items:
+            $ref: "#/components/schemas/Guide"
+          type: array
+        paging:
+          $ref: "#/components/schemas/Paging"
+        score:
+          description: 与 data 同顺序的相似度分数
+          items:
+            format: float
+            type: number
+          type: array
+      required:
+      - data
+      - paging
+      - score
+

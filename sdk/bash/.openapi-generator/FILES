@@ -1,0 +1,17 @@
+.openapi-generator-ignore
+Dockerfile
+README.md
+_client.sh
+client.sh
+client.sh.bash-completion
+docs/App.md
+docs/AppApi.md
+docs/AppItemResponse.md
+docs/AppListResponse.md
+docs/ErrorResponse.md
+docs/Guide.md
+docs/GuideApi.md
+docs/GuideItemResponse.md
+docs/GuideListResponse.md
+docs/GuideSearchResponse.md
+docs/Paging.md

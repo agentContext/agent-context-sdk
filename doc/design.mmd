@@ -1,0 +1,46 @@
+---
+title: agent-context
+---
+classDiagram
+
+applist --> appGuide
+
+
+
+    class applist{
+        +uint64 id
+        +string AppName
+        +String packageName
+        +String desc
+        +Date CreateAt
+        +Date UpdateAt
+        +uint64 Tokens
+
+
+
+        +add(T)bool
+        +change(id,T)bool
+        +del(id)bool
+
+        +get(id|AppName)T
+        +list(page,max)[]T,num
+
+    }
+    class appGuide{
+        +uint64 id
+        +sting packageName
+        +vector vector
+        +string Action
+        +uint64 tokens
+        +string desc
+        +sting source
+        +string solution
+        
+        +add(T)bool
+        +change(id,T)bool
+        +del(id)Bool
+        +get(id)T
+        delAll(pkg)Bool
+         +list(page,max)[]T,num
+        +Search(vector,name,page,max)[]T,num
+    }
